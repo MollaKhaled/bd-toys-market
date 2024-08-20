@@ -3,6 +3,7 @@ import Navbar from '../components/NavBar/NavBar';
 import Home from '../components/Home/Home';
 import { Outlet } from 'react-router-dom';
 import Register from '../components/Login/Register';
+import Login from '../components/Login/Login';
 
 const Main = () => {
   return (
@@ -10,6 +11,7 @@ const Main = () => {
       <Navbar></Navbar>
       <Outlet>
         <Register></Register>
+        <Login></Login>
       </Outlet>
     </div>
   );
