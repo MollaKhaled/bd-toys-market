@@ -10,6 +10,7 @@ const Register = () => {
 
   const handleRegister = event => {
     event.preventDefault();
+    setError('');
     setSuccess('');
     const form = event.target;
     const name = form.name.value;
@@ -25,8 +26,12 @@ const Register = () => {
       setError('Please add at least two Number')
       return;
     }
+    else if (!/(?=.*[!@#$%*])/.test(password)) {
+      setError('Please add a special Character')
+      return;
+    }
     else if (password.length < 6) {
-      setError("please add at least 6 character in your password")
+      setError("please add at least 6 character in your Password")
       return;
     }
 
@@ -66,12 +71,10 @@ const Register = () => {
                 <span className="label-text">Password</span>
               </label>
               <input type="password" name='password' placeholder="password" className="input input-bordered" required />
-              <label className="label">
-                <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-              </label>
+             
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Register</button>
+              <button className="btn btn-outline">Register</button>
             </div>
           </form>
           <label className="label mb-4 ml-8">

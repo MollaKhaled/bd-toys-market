@@ -5,6 +5,7 @@ import { Outlet } from 'react-router-dom';
 import Register from '../components/Login/Register';
 import Login from '../components/Login/Login';
 
+
 const Main = () => {
   return (
     <div>
