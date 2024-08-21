@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
 import app from '../../../firebase/firebase.config';
+import useTitle from '../hooks/useTitle';
 
 const auth = getAuth(app);
 const Login = () => {
@@ -13,6 +14,7 @@ const Login = () => {
   const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const emailRef = useRef();
+  useTitle('Login')
 
   const handleLogin = (event) => {
     event.preventDefault();

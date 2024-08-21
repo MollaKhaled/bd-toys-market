@@ -1,8 +1,10 @@
 import React from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
+import useTitle from '../hooks/useTitle';
 
 const Details = () => {
+  useTitle('Details')
   const toyDetails = useLoaderData();
   const { _id, sellerName,toyName,price,details, picture, rating, date, email, status} = toyDetails;
   return (

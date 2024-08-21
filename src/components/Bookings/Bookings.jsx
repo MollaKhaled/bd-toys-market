@@ -1,11 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import BookingRow from "./BookingRow";
+import useTitle from "../hooks/useTitle";
 
 
 
 
 const Bookings = () => {
+  useTitle('Bookings')
 const {user} = useContext(AuthContext);
 const [bookings, setBookings] = useState([])
 const url = `https://bd-toys-market-server.vercel.app/toyBookings?email=${user?.email}`
