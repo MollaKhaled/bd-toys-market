@@ -17,10 +17,26 @@ const Book = () => {
       sellerName,
       email, 
       date,
+      picture,
       toyName,
       service_id:_id,
       price:price
     }
+    console.log(booking);
+    fetch('http://localhost:3000/toyBookings', {
+      method:"POST",
+      headers:{
+        'Content-type':'application/json'
+      },
+      body: JSON.stringify(booking),
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      if(data.insertedId){
+        alert('Toy book successfully')
+      }
+    } )
   }
   return (
     <div>
