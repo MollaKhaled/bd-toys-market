@@ -3,6 +3,8 @@ import Main from "../layout/Main";
 import Home from "../components/Home/Home";
 import Register from "../components/Login/Register";
 import Login from "../components/Login/Login";
+import Bookings from "../components/Bookings/Bookings";
+import Book from "../components/Book/Book";
 
 
 const router = createBrowserRouter([
@@ -21,6 +23,11 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login/>,
+      },
+      {
+        path: "/book/:id",
+        element: <Book/>,
+        loader:({params}) =>fetch(`http://localhost:3000/toys/${params.id}`)
       },
      
     ],
