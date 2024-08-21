@@ -4,11 +4,13 @@ import { useLoaderData } from 'react-router-dom';
 
 const Toys = () => {
   const [toys, setToys] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
   const {totalToys} = useLoaderData();
-  const itemsPerPage = 10;
+  
   const totalPages = Math.ceil(totalToys / itemsPerPage);
   const pageNumbers = [...Array(totalPages).keys()];
-  console.log(totalToys);
+  
 
 
   useEffect(() =>{
@@ -16,6 +18,12 @@ const Toys = () => {
     .then(res => res.json())
     .then(data => setToys(data))
   },[])
+
+  const options = [5, 10, 20];
+  function handleSelectChange(event){
+    setItemsPerPage(parseInt(event.target.value));
+    setCurrentPage(0);
+  }
   return (
    <>
     <div className='text-center'>
@@ -35,9 +43,22 @@ const Toys = () => {
     </div>
     {/* pagination */}
     <div className="pagination text-center mb-4 ">
+      <p>currentPage: {currentPage}</p>
       {
-        pageNumbers.map(number =><button className='btn btn-warning mr-4' key={number}>{number}</button>)
+        pageNumbers.map(number =><button className='btn btn-warning mr-4' 
+          key={number}
+          onClick={() => setCurrentPage(number)}
+          >{number}</button>)
       }
+      <select value={itemsPerPage} onChange={handleSelectChange}>
+        {
+          options.map(option => (
+            <option key ={option} value={option}>
+              {option}
+            </option>
+          ))
+        }
+      </select>
     </div>
    </>
   );
