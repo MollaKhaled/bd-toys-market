@@ -1,14 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import ToysCard from '../../ToysCard/ToysCard';
+import { useLoaderData } from 'react-router-dom';
 
 const Toys = () => {
   const [toys, setToys] = useState([]);
+  const {totalToys} = useLoaderData();
+  const itemsPerPage = 10;
+  const totalPages = Math.ceil(totalToys / itemsPerPage);
+  const pageNumbers = [...Array(totalPages).keys()];
+  console.log(totalToys);
+
+
   useEffect(() =>{
     fetch('https://bd-toys-market-server.vercel.app/toys')
     .then(res => res.json())
     .then(data => setToys(data))
   },[])
   return (
+   <>
     <div className='text-center'>
       <h3 className='text-3xl text-orange-500 font-bold'>Toys</h3>
       <h1 className="text-5xl font-bold">Our Toys Area</h1>
@@ -24,6 +33,13 @@ const Toys = () => {
         }
       </div>
     </div>
+    {/* pagination */}
+    <div className="pagination text-center mb-4 ">
+      {
+        pageNumbers.map(number =><button className='btn btn-warning mr-4' key={number}>{number}</button>)
+      }
+    </div>
+   </>
   );
 };
 
