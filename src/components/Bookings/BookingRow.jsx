@@ -32,7 +32,7 @@ const BookingRow = ({ booking, handleDelete, handleConfirm }) => {
         </div> 
     </td>
     <td>
-      <div className="font-bold">{user?.email}</div>
+      <div className="font-bold">{email}</div>
     </td>
     <td>
       <div className="font-bold">{toyName}</div>

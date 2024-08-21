@@ -6,6 +6,7 @@ import Login from "../components/Login/Login";
 import Bookings from "../components/Bookings/Bookings";
 import Book from "../components/Book/Book";
 import PrivateRoute from "./PrivateRoute";
+import Details from "../components/Details/Details";
 
 
 const router = createBrowserRouter([
@@ -27,13 +28,17 @@ const router = createBrowserRouter([
       },
       {
         path: "/book/:id",
-        element: <Book/>,
-        loader:({params}) =>fetch(`http://localhost:3000/toys/${params.id}`)
+        element: <PrivateRoute><Book/></PrivateRoute>,
+        loader:({params}) =>fetch(`https://bd-toys-market-server.vercel.app/toys/${params.id}`)
       },
       {
         path: "/toyBookings",
-        element: <PrivateRoute><Bookings/></PrivateRoute>
-        
+        element: <PrivateRoute><Bookings/></PrivateRoute>   
+      },
+      {
+        path: "toys/:id",
+        element: <Details></Details>,
+        loader:({params})  =>fetch(`https://bd-toys-market-server.vercel.app/toys/${params.id}`) 
       },
      
     ],

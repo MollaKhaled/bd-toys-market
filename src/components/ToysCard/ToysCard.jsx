@@ -14,8 +14,10 @@ const ToysCard = ({toy}) => {
     <div className="card-body items-center text-center">
       <h2 className="card-title">Toy Name: {toyName}</h2>
       <p>Seller Name: {sellerName}</p>
-      <p>{details}</p>
       <p className='text-xl text-orange-500'>Price:${price}</p>
+      {details.length < 0 ? <></> :
+            <>{details.slice(0, 0)}<Link to={`/toys/${_id}`}>Details</Link></>
+          }
       <div className="card-actions">
         <Link to={`/book/${_id}`}><button className="btn btn-warning">Book Now</button></Link>
       </div>

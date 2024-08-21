@@ -23,7 +23,7 @@ const Book = () => {
       price:price
     }
     console.log(booking);
-    fetch('http://localhost:3000/toyBookings', {
+    fetch('https://bd-toys-market-server.vercel.app/toyBookings', {
       method:"POST",
       headers:{
         'Content-type':'application/json'

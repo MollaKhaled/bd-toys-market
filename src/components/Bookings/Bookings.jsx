@@ -8,7 +8,7 @@ import BookingRow from "./BookingRow";
 const Bookings = () => {
 const {user} = useContext(AuthContext);
 const [bookings, setBookings] = useState([])
-const url = `http://localhost:3000/toyBookings?email=${user?.email}`
+const url = `https://bd-toys-market-server.vercel.app/toyBookings?email=${user?.email}`
 useEffect(() => {
      fetch(url)
      .then(res => res.json())
@@ -17,7 +17,7 @@ useEffect(() => {
 const handleDelete = id => {
   const proceed = confirm("Are You sure you want to delete")
   if (proceed) {
-    fetch(`http://localhost:3000/toyBookings/${id}`, {
+    fetch(`https://bd-toys-market-server.vercel.app/toyBookings/${id}`, {
       method: 'DELETE'
     })
       .then(res => res.json())
@@ -32,7 +32,7 @@ const handleDelete = id => {
   }
 }
 const handleConfirm  = id => {
-  fetch(`http://localhost:3000/toyBookings/${id}`, {
+  fetch(`https://bd-toys-market-server.vercel.app/toyBookings/${id}`, {
     method: 'PATCH',
     headers: {
       'Content-type': 'application/json'
@@ -55,7 +55,8 @@ const handleConfirm  = id => {
 
   return (
     <div>
-      <h2>booking {bookings.length}</h2>
+      <h2 className="items-center text-center text-5xl text-bold mb-10"><span className='text-3xl text-orange-500 font-bold'>Total Booking:</span> {bookings.length}</h2>
+      <h2></h2>
       <div className="overflow-x-auto">
         <table className="table font-bold">
           {/* head */}
