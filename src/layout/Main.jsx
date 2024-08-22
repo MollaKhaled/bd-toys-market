@@ -4,16 +4,21 @@ import Home from '../components/Home/Home';
 import { Outlet } from 'react-router-dom';
 import Register from '../components/Login/Register';
 import Login from '../components/Login/Login';
+import Footer from '../components/Footer/Footer';
 
 
 const Main = () => {
   return (
     <div>
       <Navbar></Navbar>
-      <Outlet>
-        <Register></Register>
+   
+        <Outlet>
         <Login></Login>
-      </Outlet>
+        <Register></Register>
+        </Outlet>
+        
+     
+      <Footer></Footer>
     </div>
   );
 };

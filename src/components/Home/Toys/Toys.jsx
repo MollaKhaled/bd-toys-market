@@ -12,15 +12,9 @@ const Toys = () => {
   const pageNumbers = [...Array(totalPages).keys()];
   
 
-  // useEffect(() =>{
-  //   fetch('https://bd-toys-market-server.vercel.app/toys')
-  //   .then(res => res.json())
-  //   .then(data => setToys(data))
-  // },[])
-
   useEffect(() =>{
     async function fetchData(){
-      const response = await fetch(`http://localhost:3000/toys?page=${currentPage}&limit=${itemsPerPage}`);
+      const response = await fetch(`https://bd-toys-market-server.vercel.app/toys?page=${currentPage}&limit=${itemsPerPage}`);
       const data = await response.json();
       setToys(data);
     }
