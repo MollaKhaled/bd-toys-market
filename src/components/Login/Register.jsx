@@ -72,7 +72,7 @@ const Register = () => {
                 <span className="label-text">Password</span>
               </label>
               <input type="password" name='password' placeholder="password" className="input input-bordered" required />
-             
+
             </div>
             <div className="form-control mt-6">
               <button className="btn btn-outline">Register</button>

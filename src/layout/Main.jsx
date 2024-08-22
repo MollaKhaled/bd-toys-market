@@ -12,14 +12,14 @@ const Main = () => {
   return (
     <div>
       <Navbar></Navbar>
-   
-        <Outlet>
+
+      <Outlet>
         <Login></Login>
         <Register></Register>
         <About></About>
-        </Outlet>
-        
-     
+      </Outlet>
+
+
       <Footer></Footer>
     </div>
   );

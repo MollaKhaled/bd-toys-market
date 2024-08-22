@@ -9,7 +9,6 @@ import PrivateRoute from "./PrivateRoute";
 import Details from "../components/Details/Details";
 import About from "../components/About/About";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -18,35 +17,34 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader:() => fetch('https://bd-toys-market-server.vercel.app/totalToys')
+        loader: () => fetch('https://bd-toys-market-server.vercel.app/totalToys')
       },
       {
         path: "/register",
-        element: <Register/>,
+        element: <Register />,
       },
       {
         path: "/login",
-        element: <Login/>,
+        element: <Login />,
       },
       {
         path: "/about",
-        element: <About/>,
+        element: <About />,
       },
       {
         path: "/book/:id",
-        element: <PrivateRoute><Book/></PrivateRoute>,
-        loader:({params}) =>fetch(`https://bd-toys-market-server.vercel.app/toys/${params.id}`)
+        element: <PrivateRoute><Book /></PrivateRoute>,
+        loader: ({ params }) => fetch(`https://bd-toys-market-server.vercel.app/toys/${params.id}`)
       },
       {
         path: "/toyBookings",
-        element: <PrivateRoute><Bookings/></PrivateRoute>   
+        element: <PrivateRoute><Bookings /></PrivateRoute>
       },
       {
         path: "toys/:id",
         element: <Details></Details>,
-        loader:({params})  =>fetch(`https://bd-toys-market-server.vercel.app/toys/${params.id}`) 
+        loader: ({ params }) => fetch(`https://bd-toys-market-server.vercel.app/toys/${params.id}`)
       },
-     
     ],
   },
 ]);
