@@ -58,7 +58,6 @@ const handleConfirm  = id => {
   return (
     <div>
       <h2 className="items-center text-center text-5xl text-bold mb-10"><span className='text-3xl text-orange-500 font-bold'>Total Booking:</span> {bookings.length}</h2>
-      <h2></h2>
       <div className="overflow-x-auto">
         <table className="table font-bold">
           {/* head */}

@@ -7,6 +7,7 @@ import Bookings from "../components/Bookings/Bookings";
 import Book from "../components/Book/Book";
 import PrivateRoute from "./PrivateRoute";
 import Details from "../components/Details/Details";
+import About from "../components/About/About";
 
 
 const router = createBrowserRouter([
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login/>,
+      },
+      {
+        path: "/about",
+        element: <About/>,
       },
       {
         path: "/book/:id",
